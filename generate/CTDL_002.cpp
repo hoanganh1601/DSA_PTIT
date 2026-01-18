@@ -9,19 +9,25 @@
 
 using namespace std;
 
-int n, k, ans = 0;
-vector<int> res;
-vector<int> num;
+int n, k;
+vector<int> res, num;
+vector<vector<int>> listNum;
 
 void Try(int i, int curSum) {
 
     if(i > n) {
-        if(curSum == k) ++ans;
+        if(curSum == k) {
+            listNum.pb(num);
+        }
         return;
     }
 
     // pick
-    if(curSum + res[i] <= k) Try(i + 1, curSum + res[i]);
+    if(curSum + res[i] <= k) {
+        num.pb(res[i]);
+        Try(i + 1, curSum + res[i]);
+        num.pob();
+    }
 
     // not pick 
     Try(i + 1, curSum);
@@ -41,7 +47,18 @@ signed main(){
     }
 
     Try(1, 0);
-    cout << ans << endl;
+
+    int ans = listNum.size();
+    if(!ans) cout << ans;
+    else {
+        for(int i = ans - 1; i >= 0; --i) {
+            for (int j = 0; j < listNum[i].size(); ++j) {
+                cout << listNum[i][j] << " ";   
+            }
+            cout << endl;
+        }
+        cout << ans;
+    }
 
     return 0;
 }
