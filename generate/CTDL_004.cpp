@@ -32,6 +32,7 @@ signed main(){
     cin >> n >> k;
     for (int i = 1; i <= n; ++i) cin >> a[i];
     
+    // Lấy phần tử đầu tiên, first = 0
     Try(0, 1);
 
     cout << ans;
