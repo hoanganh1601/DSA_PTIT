@@ -78,7 +78,6 @@ signed main(){
 
             if(listRes.empty()) cout << -1 << endl;
             else {
-                
                 sort(listRes.begin(), listRes.end());
                 for (string x : listRes) cout << x << " ";
                 cout << endl;
