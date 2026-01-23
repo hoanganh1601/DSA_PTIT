@@ -23,6 +23,7 @@ signed main(){
         cin >> n;
         int res = 0;
         for (int x : coinList) {
+            
             res += n / x;
             n %= x;
 
