@@ -39,6 +39,7 @@ signed main(){
     int n;
     while(test--) {
         cin >> n;
+        
         solve(n);
     }   
 
