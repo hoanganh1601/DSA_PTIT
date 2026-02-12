@@ -38,7 +38,7 @@ void Try(int i) {
     }
 
     // Không phải dấu hỏi chấm (quay lui tiếp)
-    if(x[i] != '?') Try(i + 1);
+    if(s[i] != '?') Try(i + 1);
     
     else if(i == 3) {
         for (int j = 0; j < 4; ++j) {
