@@ -22,12 +22,17 @@ void Try(int i, int curSum, int quantity) {
 
     if(quantity >= ans) return;
     if(i > n) return;
+    if(curSum > S) return;
 
-    if(curSum + suffix[i] >= S) {
-        Try(i + 1, curSum + cost[i], quantity + 1);
+    if(curSum + suffix[i] < S) return;
+
+    // pick
+    Try(i + 1, curSum + cost[i], quantity + 1);
+
+    // not pick
+    if(curSum + suffix[i + 1] >= S) {
+        Try(i + 1, curSum, quantity);
     }
-
-    Try(i + 1, curSum, quantity);
 }
 
 signed main(){
