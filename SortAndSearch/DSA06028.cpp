@@ -14,21 +14,21 @@ void solve(vector<int> res) {
 
     vector<vector<int>> listRes;
     listRes.reserve(len - 1);
-    for (int i = 0; i < len - 1; ++i) {
-        int pos = i;
-        for (int j = i + 1; j < len; ++j) {
-            if(res[j] < res[pos]) pos = j;
-        }
-        swap(res[pos], res[i]);
+    for (int i = 0; i < len; ++i) {
+        int pos = i - 1, tmp = res[i];
+        while(pos >= 0 && tmp < res[pos]) {
+            res[pos + 1] = res[pos];
+            --pos;
+        }        
+        res[++pos] = tmp;
 
         listRes.pb(res);
     }
 
-    int cnt = len - 1;
-    for (int i = len - 2; i >= 0; --i) {
-        cout << "Buoc " << cnt-- << ": ";
-        for (int x : listRes[i]) {
-            cout << x << " ";
+    for (int i = len - 1; i >= 0; --i) {
+        cout << "Buoc " << i << ": ";
+        for (int j = 0; j <= i; ++j) {
+            cout << listRes[i][j] << " ";
         }
         cout << endl;
     }
