@@ -16,7 +16,7 @@ void solve() {
     vector<vector<int>> dp(n + 1, vector<int>(capacity + 1, 0));
 
     for (int i = 1; i <= n; ++i) {
-        for (int j = 0; j <= capacity; ++j) {
+        for (int j = 1; j <= capacity; ++j) {
             dp[i][j] = dp[i - 1][j];
             if(weights[i] <= j) {
                 dp[i][j] = max(dp[i][j], dp[i - 1][j - weights[i]] + values[i]);
