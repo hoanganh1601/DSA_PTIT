@@ -58,6 +58,7 @@ void solve() {
         cin >> u >> v;
         adj[u].push_back(v);
         adj[v].push_back(u);
+        
     }
 
     for (int i = 1; i <= vertex; ++i) {
