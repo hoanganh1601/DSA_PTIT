@@ -15,7 +15,7 @@ struct node {
     }
 };
 
-void makeRoot(node *root, int u, int v, char c) {
+void makeNode(node *root, int u, int v, char c) {
     if(c == 'L') root->left = new node(v);
     else root->right = new node(v);
 }
@@ -23,7 +23,7 @@ void makeRoot(node *root, int u, int v, char c) {
 void insertNode(node *root, int u, int v, char c) {
     if(root == NULL) return;
     if(root->data == u) {
-        makeRoot(root, u, v, c);
+        makeNode(root, u, v, c);
         return;
     }
 
@@ -31,25 +31,18 @@ void insertNode(node *root, int u, int v, char c) {
     insertNode(root->right, u, v, c);
 }
 
-void SprialOrder(node *root) {
-    stack<node*> st1, st2;
-    st1.push(root);
+int heightTree(node *root) {
+    // empty tree
+    if(root == NULL) return 0;
+    return max(heightTree(root->left), heightTree(root->right)) + 1;
+}
 
-    while(!st1.empty() || !st2.empty()) {
-        while(!st1.empty()) {
-            node *tmp = st1.top(); st1.pop();
-            cout << tmp->data << " ";
-            if(tmp->right != NULL) st2.push(tmp->right);
-            if(tmp->left != NULL) st2.push(tmp->left);
-        }
+bool checkLeaf(node *root, int curLevel, int height) {
+    if(root == NULL) return true;
 
-        while(!st2.empty()) {
-            node *tmp = st2.top(); st2.pop();
-            cout << tmp->data << " ";
-            if(tmp->left != NULL) st1.push(tmp->left);
-            if(tmp->right != NULL) st1.push(tmp->right);
-        }
-    }
+    if(root->left == NULL && root->left == NULL && curLevel < height) return false;
+    
+    return checkLeaf(root->left, curLevel + 1, height) && checkLeaf(root->right, curLevel + 1, height);
 }
 
 int main() {
@@ -57,24 +50,25 @@ int main() {
     ios_base :: sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
 
-    int test; cin >> test;
+    int test; cin >> test; 
     while(test--) {
         int n; cin >> n;
         node *root = NULL;
-
         for (int i = 1; i <= n; ++i) {
             int u, v; char c;
             cin >> u >> v >> c;
             if(root == NULL) {
                 root = new node(u);
-                makeRoot(root, u, v, c);
+                makeNode(root, u, v, c);
             }
-            else insertNode(root, u, v, c);
+            else {
+                insertNode(root, u, v, c);
+            }
         }
-        SprialOrder(root);
-        cout << endl;
-    }
 
+        int h = heightTree(root);
+        cout << checkLeaf(root, 1, h) << endl;
+    }
 
     return 0;
 }
