@@ -23,7 +23,7 @@ node *build(int left, int right) {
     node *root = new node(pre[left]);
     int pos = left + 1;
 
-    while(pos <= n && pre[pos] < pre[left]) ++pos;
+    while(pos <= right && pre[pos] < pre[left]) ++pos;
 
     root->left = build(left + 1, pos - 1);
     root->right = build(pos, right);
