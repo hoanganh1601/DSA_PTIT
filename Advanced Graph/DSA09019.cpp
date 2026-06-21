@@ -5,55 +5,54 @@ using namespace std;
 using ll = long long;
 
 int vertex, edge;
-vector<int> adj[1005];
-bool vs[1005];
+int par[1005], sz[1005];
 
-void DFS(int u, int stop) {
-    vs[u] = true;
-    for(int v : adj[u]) {
-        if(v == stop) continue;
-        if(!vs[v]) {
-            DFS(v, stop);
-        }
-    } 
+void init() {
+    for (int i = 1; i <= vertex; ++i) {
+        par[i] = i;
+        sz[i] = 1;
+    }
 }
 
-int tplt(int stop) {
-    memset(vs, false, sizeof(vs));
-    int cnt = 0;
-    for (int i = 1; i <= vertex; ++i) {
-        if(i == stop) continue;
-        if(!vs[i]) {
-            ++cnt;
-            DFS(i, stop);
-        }
+int find(int u) {
+    if(u == par[u]) return u;
+    return par[u] = find(par[u]);
+}
+
+bool Union(int u, int v) {
+    u = find(u); v = find(v);
+    if(u == v) return false;
+    if(sz[u] > sz[v]) {
+        sz[u] += sz[v];
+        par[v] = u;
     }
 
-    return cnt;
+    else {
+        sz[v] += sz[u];
+        par[u] = v;
+    }
+
+    return true;
 }
 
 int main() {
-    
+
     ios_base :: sync_with_stdio(false);
     cin.tie(0); cout.tie(0);
 
     int test; cin >> test;
     while(test--) {
         cin >> vertex >> edge;
+        bool ok = true;
+        init();
+
         for (int i = 1; i <= edge; ++i) {
             int u, v; cin >> u >> v;
-            adj[u].push_back(v);
-            adj[v].push_back(u);
+            if(!Union(u, v)) ok = false; 
         }
 
-        int cc = tplt(-1);
-        for (int i = 1; i <= vertex; ++i) {
-            int tmp = tplt(i);
-            if(tmp > cc) cout << i << " ";
-        }
-        cout << endl;
-
-        for (int i = 1; i <= vertex; ++i) adj[i].clear();
+        if(!ok) cout << "YES" << endl;
+        else cout << "NO" << endl; 
     }
 
     return 0;
