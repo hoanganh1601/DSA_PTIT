@@ -11,6 +11,22 @@ const int MOD = (int) 1e9 + 7;
 Matrix I;
 ll n, k;
 
+/*
+A is size M x N
+B is size N x P
+C will be size M x P
+
+vector<vector<long long>> C(M, vector<long long>(P, 0));
+
+for (int i = 0; i < M; i++) {           // Iterate through rows of A
+    for (int j = 0; j < P; j++) {       // Iterate through columns of B
+        for (int k = 0; k < N; k++) {   // The matching inner dimension
+            C[i][j] = (C[i][j] + A[i][k] * B[k][j]) % MOD;
+        }
+    }
+}
+*/
+
 Matrix mul(Matrix A, Matrix B) {
     Matrix res(n + 5, vector<ll>(n + 5, 0));
 
