@@ -40,7 +40,6 @@ void solve() {
             vs.insert(cur * 2);
         }
     }
-
     cout << -1 << endl;
 }
 
