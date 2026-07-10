@@ -4,6 +4,8 @@
 using namespace std;
 using ll = long long;
 
+// AI support
+
 const int MAX_GRID = 3010; 
 bool is_fence[MAX_GRID][MAX_GRID];
 bool visited[MAX_GRID][MAX_GRID];
