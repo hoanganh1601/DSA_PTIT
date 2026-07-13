@@ -26,7 +26,7 @@ int calc(int pre, int u) {
         // Duplicate bit 1
         if((pre & curStatus) != 0) continue;
         
-        // pre | curStatus: is chosing city
+        // pre | curStatus: is choosing city
         minCost = min(minCost, cost[u][v] + calc(pre | curStatus, v));
     }
     dp[pre][u] = minCost;
