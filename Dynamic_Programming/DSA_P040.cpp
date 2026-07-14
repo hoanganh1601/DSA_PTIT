@@ -28,7 +28,6 @@ void precompute() {
 void solve() {
     cin >> n;
     // 4xN grid
-
     ll maxVal = -INF;
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < n; ++j) {
