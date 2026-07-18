@@ -1,24 +1,34 @@
-# Data Structures and Algorithms (DSA) - PTIT 🚀
+# Data Structures and Algorithms (DSA) Architecture 
 
-## 📖 Description
-This repository contains my source code solutions for the Data Structures and Algorithms (DSA) exercises at PTIT. It serves as a personal archive to track my progress in competitive programming and my understanding of core algorithmic concepts. 
+## 📖 Overview
+This repository serves as a comprehensive, optimized library of Data Structures and Algorithms (DSA). Developed throughout the computer science curriculum at the **Posts and Telecommunications Institute of Technology (PTIT)**, this archive demonstrates practical implementation, runtime optimization, and rigorous problem-solving capabilities. 
 
-## 🛠️ Language & Tools
-* **Language:** C++ (100%)
-* **Focus:** Competitive Programming, Algorithm Optimization, and Data Structures.
+The solutions within focus heavily on minimizing asymptotic time and space complexities, providing a robust foundation for advanced research in data science, machine learning, and high-performance software engineering.
 
-## 📂 Repository Structure
-The exercises are categorized by algorithmic paradigms and data structures:
+## 🗄️ Algorithmic Domains & Architecture
+The repository is modularized into the following core computer science domains:
 
-* `Backtracking-BranchAndBound/` - Quay lui & Nhánh cận
-* `Divide and Conquer/` - Chia để trị
-* `Greedy/` - Thuật toán Tham lam
-* `Queue/` - Hàng đợi
-* `SortAndSearch/` - Sắp xếp & Tìm kiếm
-* `Stack/` - Ngăn xếp
-* `generate/` - Thuật toán Sinh kế tiếp
+*   **Advanced Graph:** Complex network traversal, minimum spanning trees, and shortest-path optimizations.
+*   **Backtracking-BranchAndBound:** State-space tree exploration utilizing aggressive bounding to prune suboptimal execution branches.
+*   **BinaryTree:** Hierarchical data architectures and depth/breadth-first traversal algorithms.
+*   **Divide and Conquer:** Recursive sub-problem segmentation for logarithmic and linearithmic time complexities.
+*   **Dynamic Programming:** State memoization and tabulation to optimize overlapping subproblems.
+*   **Graph:** Foundational vertex and edge manipulation, including cycle detection and connectivity.
+*   **Greedy:** Local optimum heuristics designed for rapid, globally optimal solutions.
+*   **Queue:** First-In-First-Out (FIFO) buffer implementations.
+*   **Sort And Search:** Fundamental data ordering and high-efficiency retrieval operations.
+*   **Stack:** Last-In-First-Out (LIFO) memory architectures.
+*   **generate:** Combinatorics, permutation, and exhaustive subset generation.
 
-## ⚙️ How to Use
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/your-username/DSA_PTIT.git](https://github.com/your-username/DSA_PTIT.git)
+## 🛠️ Technical Stack & Methodology
+*   **Language:** C++
+*   **Methodology:** All implementations strictly adhere to competitive programming standards, prioritizing rapid execution limits and strict memory constraints.
+*   **Evaluation:** Code is structured to pass exhaustive, automated test cases, ensuring high reliability against edge cases and scalability bottlenecks typically encountered in algorithmic tournaments.
+
+## 🚀 Deployment & Compilation
+To clone and compile the algorithmic library locally:
+
+```bash
+git clone https://github.com/hoanganh1601/DSA_PTIT.git
+cd DSA_PTIT
+```
