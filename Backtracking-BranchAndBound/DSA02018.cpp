@@ -55,10 +55,9 @@ int main() {
     cin.tie(0); cout.tie(0);
 
     int test;
-    if (cin >> test) {
-        while (test--) {
-            solve();
-        }
+    cin >> test;
+    while(test--) {
+        solve();
     }
 
     return 0;
